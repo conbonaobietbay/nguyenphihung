@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Nguyễn Phi Hùng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables - Định nghĩa tone màu chủ đạo */
+        :root {
+            --navy-blue: #1A365D; /* Xanh dương đậm, sang trọng */
+            --light-blue: #EBF8FF; /* Xanh nhạt làm nền */
+            --white: #FFFFFF;
+            --text-dark: #2D3748;
+            --text-muted: #718096;
+            --border-color: #E2E8F0;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Lora', serif; /* Font chữ có chân tạo nét cổ kính */
+            color: var(--navy-blue);
+            font-weight: 500;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--navy-blue);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-family: 'Lora', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: var(--navy-blue);
+            margin: 15px auto 0;
+        }
+
+        /* Hero / About Section */
+        #gioi-thieu {
+            padding-top: 150px;
+            background-color: var(--light-blue);
+            border-bottom: none;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .goals-box {
+            background: var(--white);
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            margin-top: 30px;
+            text-align: left;
+            width: 100%;
+        }
+
+        .goals-box h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            background: var(--white);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(26, 54, 93, 0.05);
+            border-color: var(--navy-blue);
+        }
+
+        .project-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            display: inline-block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-bottom: 1px solid var(--navy-blue);
+            padding-bottom: 2px;
+        }
+
+        /* Summary Section */
+        #tong-ket .summary-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .reflection-item {
+            margin-bottom: 30px;
+        }
+
+        .reflection-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 0;
+            font-family: 'Lora', serif;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-content h1 { font-size: 2.2rem; }
+            nav ul { display: none; } /* Simple mobile view */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <div class="logo">Xavier.</div>
+            <ul>
+                <li><a href="#gioi-thieu">Giới thiệu</a></li>
+                <li><a href="#du-an">Dự án</a></li>
+                <li><a href="#tong-ket">Tổng kết</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="gioi-thieu">
+        <div class="container">
+            <div class="about-content">
+                <h1>Nguyễn Phi Hùng</h1>
+                <p>Sinh viên Khoa Điện tử Viễn thông (FET) - Trường Đại học Công nghệ, ĐHQGHN.<br>
+                   Đam mê nhiếp ảnh, lập trình, văn hóa nghệ thuật và các dự án bảo tồn di sản không gian cổ kính.</p>
+                
+                <div class="goals-box">
+                    <h3>Mục tiêu học tập & Định hướng</h3>
+                    <p>Môn học "Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo" cung cấp nền tảng vững chắc về quản lý dữ liệu và sử dụng công cụ AI. Định hướng của tôi là áp dụng những kỹ năng này vào việc tối ưu hóa quy trình học tập, nghiên cứu kỹ thuật và phát triển các dự án lưu trữ, sáng tạo cá nhân trong tương lai.</p>
+                    
+                    <h3 style="margin-top: 25px;">Mục tiêu của Portfolio</h3>
+                    <p>Portfolio này được thiết kế theo phong cách tối giản, hoài cổ để: <br>
+                    - Tổng hợp và thể hiện một cách có hệ thống các kỹ năng đã học.<br>
+                    - Lưu trữ sản phẩm cá nhân để dễ dàng truy cập, đánh giá và chia sẻ.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="du-an">
+        <div class="container">
+            <h2 class="section-title">Các bài tập thành phần</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <h3>Bài 1: Thao tác cơ bản với tệp tin và thư mục</h3>
+                    <p>Trình bày cấu trúc thư mục tối ưu và quy tắc đặt tên tệp đã thiết lập, kèm hình ảnh minh họa quá trình quản lý dữ liệu số.</p>
+                    <a href="#" class="project-link">Xem chi tiết (PDF/Link)</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Bài 2: Tìm kiếm và đánh giá thông tin học thuật</h3>
+                    <p>Kết quả áp dụng các kỹ năng tìm kiếm thông tin nâng cao và phương pháp đánh giá độ tin cậy của các nguồn tài liệu học thuật.</p>
+                    <a href="#" class="project-link">Xem chi tiết (PDF/Link)</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Bài 3: Viết Prompt hiệu quả cho các tác vụ học tập</h3>
+                    <p>So sánh chi tiết giữa Prompt ban đầu và Prompt đã được tối ưu hóa, cùng kết quả đầu ra chất lượng từ các công cụ AI.</p>
+                    <a href="#" class="project-link">Xem chi tiết (PDF/Link)</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Bài 4: Sử dụng công cụ hợp tác trực tuyến</h3>
+                    <p>Minh chứng về việc ứng dụng nền tảng số để quản lý dự án nhóm, phân công công việc và phối hợp làm việc trực tuyến hiệu quả.</p>
+                    <a href="#" class="project-link">Xem chi tiết (PDF/Link)</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Bài 5: Sử dụng AI sinh để hỗ trợ sáng tạo nội dung</h3>
+                    <p>Trưng bày các sản phẩm nội dung số hoàn thiện (hình ảnh, văn bản) được hỗ trợ thiết kế và tinh chỉnh bởi Trí tuệ nhân tạo.</p>
+                    <a href="#" class="project-link">Xem chi tiết (PDF/Link)</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Bài 6: AI có trách nhiệm trong học tập & nghiên cứu</h3>
+                    <p>Trình bày bộ nguyên tắc cá nhân về sử dụng AI, tuân thủ liêm chính học thuật và các quy tắc đạo đức dựa trên nghiên cứu.</p>
+                    <a href="#" class="project-link">Xem chi tiết (PDF/Link)</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="tong-ket">
+        <div class="container">
+            <h2 class="section-title">Tổng kết & Cảm nhận</h2>
+            
+            <div class="summary-content">
+                <div class="reflection-item">
+                    <h3>Trải nghiệm qua quá trình thực hiện</h3>
+                    <p>Quá trình xây dựng Portfolio không chỉ là việc nộp lại bài tập, mà là cơ hội để nhìn nhận lại toàn bộ tiến trình học tập. Việc kết hợp giữa tư duy logic của một sinh viên kỹ thuật và tính thẩm mỹ đã mang lại cho tôi những trải nghiệm thú vị trong việc tổ chức không gian số cá nhân.</p>
+                </div>
+
+                <div class="reflection-item">
+                    <h3>Kiến thức và kỹ năng quan trọng nhất</h3>
+                    <p>Kỹ năng viết Prompt có cấu trúc và việc thấu hiểu các nguyên tắc đạo đức khi sử dụng AI là hai bài học cốt lõi. Chúng giúp tôi làm chủ công cụ thay vì phụ thuộc, đảm bảo tính liêm chính trong môi trường học thuật và nghiên cứu sau này.</p>
+                </div>
+
+                <div class="reflection-item">
+                    <h3>Điểm tâm đắc & Khó khăn</h3>
+                    <p>Điểm tâm đắc nhất là việc tự tay thiết kế được một không gian lưu trữ mang đậm dấu ấn cá nhân - tối giản nhưng vẫn sang trọng. Khó khăn lớn nhất nằm ở việc chắt lọc thông tin từ các bài tập lớn để trình bày một cách ngắn gọn, mạch lạc và trực quan nhất trên nền tảng web.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Portfolio Môn học | Thiết kế và hoàn thiện bởi Nguyễn Phi Hùng © 2026</p>
+        </div>
+    </footer>
+
+</body>
+</html>
