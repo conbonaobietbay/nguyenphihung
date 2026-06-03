@@ -3,25 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Portfolio | Nguyễn Phi Hùng</title>
+    <title>Vietnam Tech-Heritage Portfolio | Nguyễn Phi Hùng</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Space+Grotesk:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
-        /* Định nghĩa hệ màu sắc Luxury Dark Blue */
+        /* Hệ màu sắc Cyber-Heritage */
         :root {
-            --bg-deep: #030A16;       /* Nền tối sâu thẳm */
-            --bg-surface: #0A162C;    /* Nền của các thẻ/card */
-            --bg-surface-hover: #122544;
-            --accent-blue: #00E5FF;   /* Xanh neon phát sáng */
-            --text-primary: #F8FAFC;  /* Chữ trắng tinh tế */
-            --text-secondary: #94A3B8;/* Chữ xám mờ */
-            --border-glow: rgba(0, 229, 255, 0.15);
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --bg-deep: #020714;         /* Xanh thẳm hoàng cung, sâu hun hút */
+            --bg-card: #071125;         /* Xanh phi thuyền kĩ thuật */
+            --bg-card-hover: #0D1F3D;
+            --cyber-cyan: #00F0FF;      /* Xanh neon công nghệ tương lai */
+            --royal-gold: #DFB15B;      /* Vàng kim cổ kính, sang trọng */
+            --text-pure: #F8FAFC;
+            --text-muted: #64748B;
+            --border-tech: rgba(0, 240, 255, 0.1);
+            --border-gold: rgba(223, 177, 91, 0.2);
+            --font-heritage: 'Cinzel', serif;
+            --font-tech: 'Space Grotesk', sans-serif;
+            --font-base: 'Plus Jakarta Sans', sans-serif;
         }
 
-        /* Reset cơ bản */
         * {
             margin: 0;
             padding: 0;
@@ -29,46 +32,39 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: var(--font-base);
             background-color: var(--bg-deep);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(0, 229, 255, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 90% 80%, rgba(26, 54, 93, 0.3) 0%, transparent 50%);
-            color: var(--text-primary);
+            color: var(--text-pure);
             line-height: 1.8;
             scroll-behavior: smooth;
+            overflow-x: hidden;
+            /* Lưới công nghệ mờ kết hợp ánh sáng cổ vật */
+            background-image: 
+                linear-gradient(rgba(0, 240, 255, 0.01) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.01) 1px, transparent 1px),
+                radial-gradient(circle at 50% 0%, rgba(223, 177, 91, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 0% 100%, rgba(0, 240, 255, 0.05) 0%, transparent 50%);
+            background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%;
         }
 
-        /* Typography */
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
+        /* Khung chứa */
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 30px;
+            padding: 0 40px;
         }
 
-        /* Thanh điều hướng Glassmorphism (Kính mờ siêu sang) */
+        /* Thanh điều hướng tối giản sang trọng */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(3, 10, 22, 0.7);
+            background: rgba(2, 7, 20, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid var(--border-tech);
             z-index: 1000;
-            padding: 25px 0;
+            padding: 20px 0;
         }
 
         nav .container {
@@ -77,11 +73,18 @@
             align-items: center;
         }
 
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         nav .logo {
-            font-size: 1.4rem;
-            font-weight: 600;
+            font-family: var(--font-heritage);
+            font-size: 1.3rem;
+            font-weight: 700;
             letter-spacing: 2px;
-            background: linear-gradient(135deg, #FFF 0%, var(--accent-blue) 100%);
+            background: linear-gradient(135deg, #FFF 0%, var(--royal-gold) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -93,244 +96,358 @@
         }
 
         nav ul li a {
-            font-size: 0.9rem;
+            font-family: var(--font-tech);
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-secondary);
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
         }
 
-        nav ul li a:hover, nav ul li a.active {
-            color: var(--accent-blue);
-            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+        nav ul li a:hover {
+            color: var(--cyber-cyan);
+            text-shadow: 0 0 10px var(--cyber-cyan);
         }
 
-        /* Tiêu đề các mục lớn */
-        .section-title {
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 60px;
+        /* Khối Hero (Giới thiệu đầu trang) */
+        #gioi-thieu {
+            padding: 180px 0 120px 0;
             position: relative;
         }
 
-        .section-title span {
-            display: block;
-            font-size: 0.8rem;
+        /* Lõi năng lượng Trống Đồng Công Nghệ Số ở giữa nền */
+        .dongson-bg {
+            position: absolute;
+            top: 10%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            opacity: 0.06;
+            pointer-events: none;
+            animation: spin 120s linear infinite;
+        }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text .sub {
+            font-family: var(--font-tech);
+            color: var(--cyber-cyan);
             text-transform: uppercase;
             letter-spacing: 4px;
-            color: var(--accent-blue);
-            margin-bottom: 10px;
-        }
-
-        /* Hero / Phần Giới thiệu */
-        #gioi-thieu {
-            padding: 180px 0 100px 0;
-        }
-
-        .hero-block {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 50px;
-            align-items: center;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: block;
         }
 
         .hero-text h1 {
-            font-size: 4rem;
+            font-family: var(--font-heritage);
+            font-size: 4.5rem;
             line-height: 1.1;
-            margin-bottom: 25px;
-            background: linear-gradient(to right, #FFFFFF, #93C5FD);
+            margin-bottom: 30px;
+            background: linear-gradient(to right, #FFFFFF 40%, var(--royal-gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero-text p {
-            color: var(--text-secondary);
+            color: #94A3B8;
             font-size: 1.1rem;
-            margin-bottom: 30px;
+            max-width: 600px;
+            margin-bottom: 40px;
         }
 
-        .premium-box {
-            background: var(--bg-surface);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        /* Card góc cạnh kiểu hi-tech phối họa tiết */
+        .heritage-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-tech);
+            border-top: 3px solid var(--royal-gold);
             padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-radius: 4px;
             position: relative;
-            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
         }
 
-        .premium-box::before {
-            content: '';
+        /* Họa tiết góc kiểu rồng cổ cách điệu hình học */
+        .heritage-card::after {
+            content: '✦';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+            bottom: 15px;
+            right: 15px;
+            color: var(--royal-gold);
+            font-size: 0.8rem;
+            opacity: 0.5;
         }
 
-        .premium-box h3 {
+        .heritage-card h3 {
+            font-family: var(--font-heritage);
             font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: #FFF;
+            color: var(--royal-gold);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        /* Phần hiển thị danh sách bài tập (Grid đẳng cấp) */
+        /* Phần tiêu đề các Section */
+        .section-heading {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-heading span {
+            font-family: var(--font-tech);
+            color: var(--cyber-cyan);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .section-heading h2 {
+            font-family: var(--font-heritage);
+            font-size: 3rem;
+            letter-spacing: 1px;
+            background: linear-gradient(to bottom, #fff, #CBD5E1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Danh sách Dự án / Bài tập lớn */
         #du-an {
             padding: 100px 0;
         }
 
-        .grid-projects {
+        .project-matrix {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 30px;
         }
 
-        .card-premium {
-            background: var(--bg-surface);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            padding: 35px;
-            border-radius: 12px;
-            transition: var(--transition);
+        .matrix-box {
+            background: linear-gradient(135deg, var(--bg-card) 0%, #040D1E 100%);
+            border: 1px solid var(--border-tech);
+            padding: 40px 35px;
             position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
         }
 
-        .card-premium:hover {
-            transform: translateY(-8px);
-            background: var(--bg-surface-hover);
-            border-color: rgba(0, 229, 255, 0.3);
-            box-shadow: 0 15px 35px rgba(0, 229, 255, 0.05);
+        /* Đường viền công nghệ góc vuông phát sáng khi hover */
+        .matrix-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border: 1px solid var(--royal-gold);
+            opacity: 0;
+            transition: all 0.4s ease;
+            pointer-events: none;
+            transform: scale(1.02);
         }
 
-        .card-premium .badge {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--accent-blue);
-            margin-bottom: 15px;
-            display: inline-block;
+        .matrix-box:hover {
+            transform: translateY(-5px);
+            border-color: transparent;
+            box-shadow: 0 20px 40px rgba(0, 240, 255, 0.03);
         }
 
-        .card-premium h3 {
-            font-size: 1.3rem;
-            color: #FFF;
-            margin-bottom: 15px;
+        .matrix-box:hover::before {
+            opacity: 1;
+            transform: scale(1);
         }
 
-        .card-premium p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-            flex-grow: 1;
-        }
-
-        .card-link {
-            font-size: 0.85rem;
+        .box-num {
+            font-family: var(--font-tech);
+            color: rgba(0, 240, 255, 0.15);
+            font-size: 3.5rem;
             font-weight: 600;
-            letter-spacing: 1px;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            line-height: 1;
+        }
+
+        .matrix-box:hover .box-num {
+            color: rgba(223, 177, 91, 0.2);
+        }
+
+        .matrix-box .tag {
+            font-family: var(--font-tech);
+            font-size: 0.75rem;
+            color: var(--cyber-cyan);
             text-transform: uppercase;
-            color: #FFF;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .matrix-box h3 {
+            font-family: var(--font-heritage);
+            font-size: 1.25rem;
+            color: var(--text-pure);
+            margin-bottom: 15px;
+            max-width: 80%;
+            line-height: 1.4;
+        }
+
+        .matrix-box p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+
+        .action-btn {
+            font-family: var(--font-tech);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--royal-gold);
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
         }
 
-        .card-premium:hover .card-link {
-            color: var(--accent-blue);
-        }
-
-        /* Phần Tổng kết */
+        /* Mục Tổng Kết (Kỷ nguyên vươn mình) */
         #tong-ket {
-            padding: 100px 0;
-            background: rgba(10, 22, 44, 0.2);
-        }
-
-        .timeline {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .timeline-item {
+            padding: 120px 0;
             position: relative;
-            padding-left: 35px;
-            margin-bottom: 40px;
-            border-left: 1px solid rgba(0, 229, 255, 0.2);
         }
 
-        .timeline-item::before {
+        .heritage-flow {
+            max-width: 850px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .flow-node {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 60px;
+        }
+
+        /* Trục dọc công nghệ kết hợp chấm tròn vàng cổ kính */
+        .flow-node::before {
             content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: -60px;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--royal-gold), var(--cyber-cyan), transparent);
+        }
+
+        .flow-node:last-child::before {
+            display: none;
+        }
+
+        .flow-dot {
             position: absolute;
             left: -5px;
             top: 8px;
-            width: 9px;
-            height: 9px;
+            width: 11px;
+            height: 11px;
             border-radius: 50%;
-            background: var(--accent-blue);
-            box-shadow: 0 0 10px var(--accent-blue);
+            background: var(--royal-gold);
+            box-shadow: 0 0 12px var(--royal-gold);
+            border: 2px solid var(--bg-deep);
         }
 
-        .timeline-item h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+        .flow-node:nth-child(2) .flow-dot {
+            background: var(--cyber-cyan);
+            box-shadow: 0 0 12px var(--cyber-cyan);
+        }
+
+        .flow-node h3 {
+            font-family: var(--font-heritage);
+            font-size: 1.6rem;
             color: #FFF;
+            margin-bottom: 15px;
         }
 
-        .timeline-item p {
-            color: var(--text-secondary);
+        .flow-node p {
+            color: #94A3B8;
         }
 
-        /* Footer */
+        /* Footer kết */
         footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
-            padding: 50px 0;
+            border-top: 1px solid rgba(223, 177, 91, 0.1);
+            background-color: #01040D;
+            padding: 60px 0;
             text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+        }
+
+        footer p {
+            font-family: var(--font-tech);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: var(--text-muted);
         }
 
         footer p span {
-            color: var(--accent-blue);
+            font-family: var(--font-heritage);
+            color: var(--royal-gold);
+            font-weight: bold;
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 900px) {
-            .hero-block { grid-template-columns: 1fr; gap: 40px; }
-            .hero-text h1 { font-size: 2.8rem; }
+        /* Khả năng tương thích di động */
+        @media (max-width: 968px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero-text h1 { font-size: 3.2rem; }
             nav ul { display: none; }
-            .section-title { font-size: 2.2rem; }
+            .section-heading h2 { font-size: 2.3rem; }
         }
     </style>
 </head>
 <body>
 
+    <svg class="dongson-bg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="95" fill="none" stroke="#DFB15B" stroke-width="0.5"/>
+        <circle cx="100" cy="100" r="85" fill="none" stroke="#00F0FF" stroke-width="0.5" stroke-dasharray="5,5"/>
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#DFB15B" stroke-width="0.5"/>
+        <circle cx="100" cy="100" r="50" fill="none" stroke="#00F0FF" stroke-width="0.3"/>
+        <polygon points="100,75 105,90 120,90 108,100 112,115 100,105 88,115 92,100 80,90 95,90" fill="none" stroke="#DFB15B" stroke-width="0.7"/>
+    </svg>
+
     <nav>
         <div class="container">
-            <div class="logo">MPH.PORTFOLIO</div>
+            <div class="logo-box">
+                <div class="logo">PHI HUNG.</div>
+            </div>
             <ul>
-                <li><a href="#gioi-thieu" class="active">Giới thiệu</a></li>
-                <li><a href="#du-an">Dự án</a></li>
-                <li><a href="#tong-ket">Tổng kết</a></li>
+                <li><a href="#gioi-thieu">Khởi nguyên</a></li>
+                <li><a href="#du-an">Hệ thống số</a></li>
+                <li><a href="#tong-ket">Vươn mình</a></li>
             </ul>
         </div>
     </nav>
 
     <section id="gioi-thieu">
         <div class="container">
-            <div class="hero-block">
+            <div class="hero-grid">
                 <div class="hero-text">
+                    <span class="sub">Kỷ nguyên số & Bản sắc Việt</span>
                     <h1>Nguyễn Phi Hùng</h1>
-                    <p>Sinh viên Khoa Điện tử Viễn thông (FET) — Trường Đại học Công nghệ, ĐHQGHN. Định hướng đam mê nghiên cứu kỹ thuật công nghệ kết hợp tính thẩm mỹ đương đại.</p>
+                    <p>Sinh viên Khoa Điện tử Viễn thông (FET) — Trường Đại học Công nghệ, Đại học Quốc gia Hà Nội. Kỹ sư tương lai mang tư duy công nghệ AI đột phá kết hợp cùng dòng chảy văn hóa truyền thống trường tồn.</p>
                     
-                    <div class="premium-box">
-                        <h3>Mục tiêu học tập & Định hướng</h3>
-                        <p>Ứng dụng triệt để kiến thức từ môn học "Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo" nhằm tối ưu hoá quy trình xử lý dữ liệu, làm chủ các hệ thống AI thế hệ mới để phục vụ nghiên cứu chuyên sâu.</p>
+                    <div class="heritage-card">
+                        <h3><span style="color: var(--cyber-cyan); font-family: var(--font-tech);">[01]</span> Định hướng học thuật</h3>
+                        <p style="margin:0; color:#CBD5E1;">Nghiên cứu sâu sắc môn "Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo" để kiến tạo giải pháp chuyển đổi số toàn diện. Định hướng kết hợp thuật toán AI hiện đại vào lưu trữ, phát triển và số hóa các giá trị di sản văn hóa Việt Nam.</p>
                     </div>
                 </div>
                 
-                <div class="premium-box" style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
-                    <h3 style="color: var(--accent-blue);">Mục tiêu của Portfolio</h3>
-                    <p style="margin-bottom: 15px;">• Số hóa và lưu trữ một cách khoa học toàn bộ tiến trình học tập cá nhân.</p>
-                    <p style="margin-bottom: 15px;">• Minh chứng trực quan năng lực áp dụng công cụ công nghệ số vào thực tiễn bài tập.</p>
-                    <p>• Xây dựng không gian định danh cá nhân chuyên nghiệp, tối giản và sang trọng trên internet.</p>
+                <div class="heritage-card" style="border-top: 3px solid var(--cyber-cyan);">
+                    <h3><span style="color: var(--royal-gold);">✦</span> Hệ giá trị Portfolio</h3>
+                    <p style="margin-bottom: 20px; font-size: 0.95rem;"><strong>• Số hóa có hệ thống:</strong> Lưu trữ lưu loát và khoa học toàn bộ 06 bài tập dự án cốt lõi của môn học.</p>
+                    <p style="margin-bottom: 20px; font-size: 0.95rem;"><strong>• Minh chứng thực tế:</strong> Thể hiện năng lực tư duy số, kỹ nghệ Prompt và sử dụng AI có trách nhiệm.</p>
+                    <p style="margin: 0; font-size: 0.95rem;"><strong>• Độc bản không gian:</strong> Khẳng định cá tính định danh sang trọng, hoài cổ nhưng hướng tới tương lai số.</p>
                 </div>
             </div>
         </div>
@@ -338,61 +455,58 @@
 
     <section id="du-an">
         <div class="container">
-            <h2 class="section-title"><span>Sản phẩm</span>Các bài tập dự án</h2>
+            <div class="section-heading">
+                <span>Digital Artifacts</span>
+                <h2>Sản phẩm dự án cá nhân</h2>
+            </div>
             
-            <div class="grid-projects">
-                <div class="card-premium">
-                    <div>
-                        <span class="badge">Bài tập 1</span>
-                        <h3>Thao tác tệp tin & cấu trúc thư mục</h3>
-                        <p>Xây dựng hệ thống cấu trúc thư mục khoa học, chuẩn hóa quy tắc đặt tên file dữ liệu số tối ưu kèm minh chứng.</p>
-                    </div>
-                    <a href="#" class="card-link">Xem chi tiết →</a>
+            <div class="project-matrix">
+                <div class="matrix-box">
+                    <div class="box-num">I</div>
+                    <span class="tag">Dữ liệu số</span>
+                    <h3>Thao tác tệp tin & Cấu trúc thư mục</h3>
+                    <p>Chuẩn hóa kiến trúc lưu trữ dữ liệu cá nhân tối ưu, thiết lập quy chuẩn danh mục khoa học phục vụ nghiên cứu dài hạn.</p>
+                    <a href="#" class="action-btn">Khai phá tài liệu ↗</a>
                 </div>
 
-                <div class="card-premium">
-                    <div>
-                        <span class="badge">Bài tập 2</span>
-                        <h3>Tìm kiếm & Đánh giá học thuật</h3>
-                        <p>Khai thác các cú pháp tìm kiếm nâng cao, bộ lọc thông tin và kỹ thuật thẩm định nguồn tài liệu tin cậy khoa học.</p>
-                    </div>
-                    <a href="#" class="card-link">Xem chi tiết →</a>
+                <div class="matrix-box">
+                    <div class="box-num">II</div>
+                    <span class="tag">Học thuật</span>
+                    <h3>Tìm kiếm & Thẩm định thông tin</h3>
+                    <p>Ứng dụng cú pháp tìm kiếm thông tin nâng cao và các tiêu chí khắt khe để phân tích nguồn tài liệu khoa học đáng tin cậy.</p>
+                    <a href="#" class="action-btn">Khai phá tài liệu ↗</a>
                 </div>
 
-                <div class="card-premium">
-                    <div>
-                        <span class="badge">Bài tập 3</span>
-                        <h3>Kỹ nghệ Prompt học tập</h3>
-                        <p>Nghiên cứu cấu trúc Prompt chất lượng cao, thực hiện so sánh đối chiếu kết quả phản hồi từ các mô hình AI lớn.</p>
-                    </div>
-                    <a href="#" class="card-link">Xem chi tiết →</a>
+                <div class="matrix-box">
+                    <div class="box-num">III</div>
+                    <span class="tag">Kỹ nghệ AI</span>
+                    <h3>Tối ưu hóa cấu trúc Prompt</h3>
+                    <p>Thiết kế ma trận Prompt chất lượng cao phục vụ các tác vụ phức tạp, đối chiếu hiệu năng đầu ra giữa các hệ thống AI hàng đầu.</p>
+                    <a href="#" class="action-btn">Khai phá tài liệu ↗</a>
                 </div>
 
-                <div class="card-premium">
-                    <div>
-                        <span class="badge">Bài tập 4</span>
-                        <h3>Hợp tác trực tuyến & Quản trị số</h3>
-                        <p>Ứng dụng các hệ sinh thái đám mây để quản trị dự án nhóm, tối ưu hóa tiến độ công việc trực tuyến.</p>
-                    </div>
-                    <a href="#" class="card-link">Xem chi tiết →</a>
+                <div class="matrix-box">
+                    <div class="box-num">IV</div>
+                    <span class="tag">Cộng tác</span>
+                    <h3>Quản trị & Hợp tác trực tuyến</h3>
+                    <p>Vận hành nền tảng điện toán đám mây để tổ chức mô hình làm việc nhóm từ xa, tối ưu hóa dòng chảy công việc số.</p>
+                    <a href="#" class="action-btn">Khai phá tài liệu ↗</a>
                 </div>
 
-                <div class="card-premium">
-                    <div>
-                        <span class="badge">Bài tập 5</span>
-                        <h3>Sáng tạo nội dung với AI sinh</h3>
-                        <p>Ứng dụng Trí tuệ nhân tạo tạo sinh (Generative AI) để hỗ trợ lên ý tưởng, thiết kế hình ảnh và tinh chỉnh văn bản.</p>
-                    </div>
-                    <a href="#" class="card-link">Xem chi tiết →</a>
+                <div class="matrix-box">
+                    <div class="box-num">V</div>
+                    <span class="tag">Generative AI</span>
+                    <h3>Sáng tạo nội dung số cùng AI</h3>
+                    <p>Phối hợp cùng Trí tuệ nhân tạo tạo sinh để thiết kế hình ảnh nghệ thuật, biên tập văn bản đạt độ thẩm mỹ cao.</p>
+                    <a href="#" class="action-btn">Khai phá tài liệu ↗</a>
                 </div>
 
-                <div class="card-premium">
-                    <div>
-                        <span class="badge">Bài tập 6</span>
-                        <h3>AI có trách nhiệm & Đạo đức</h3>
-                        <p>Xây dựng bộ quy tắc cá nhân, thực hành liêm chính học thuật và sử dụng AI văn minh trong môi trường đại học.</p>
-                    </div>
-                    <a href="#" class="card-link">Xem chi tiết →</a>
+                <div class="matrix-box">
+                    <div class="box-num">VI</div>
+                    <span class="tag">Trách nhiệm</span>
+                    <h3>Liêm chính học thuật trong kỷ nguyên AI</h3>
+                    <p>Xây dựng hệ thống nguyên tắc đạo đức cốt lõi, đảm bảo việc ứng dụng công cụ AI một cách minh bạch, trách nhiệm.</p>
+                    <a href="#" class="action-btn">Khai phá tài liệu ↗</a>
                 </div>
             </div>
         </div>
@@ -400,22 +514,28 @@
 
     <section id="tong-ket">
         <div class="container">
-            <h2 class="section-title"><span>Nhìn nhận</span>Tổng kết hành trình</h2>
+            <div class="section-heading">
+                <span>Conclude</span>
+                <h2>Tổng kết & Suy ngẫm</h2>
+            </div>
             
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Trải nghiệm thực hiện dự án</h3>
-                    <p>Quá trình hoàn thiện Portfolio giúp tôi nhìn lại một cách thấu đáo từng chặng đường học tập, biết cách biến các khối dữ liệu bài tập khô khan thành một giao diện số mang đậm tính cá nhân hóa.</p>
+            <div class="heritage-flow">
+                <div class="flow-node">
+                    <div class="flow-dot"></div>
+                    <h3>Góc nhìn qua dự án</h3>
+                    <p>Việc thực hiện Portfolio giúp tôi nhận thức sâu sắc rằng công nghệ không làm mất đi bản sắc. Ngược lại, chính mã nguồn code, chính không gian số này lại là mảnh đất hoàn hảo để tôn vinh và giữ gìn những giá trị truyền thống theo cách hiện đại nhất.</p>
                 </div>
                 
-                <div class="timeline-item">
-                    <h3>Giá trị cốt lõi thu nhận</h3>
-                    <p>Kỹ năng làm chủ Prompt và ý thức sâu sắc về Liêm chính học thuật chính là hai hành trang quan trọng nhất giúp tôi sử dụng AI như một người trợ lý đắc lực thay vì phụ thuộc hoàn toàn.</p>
+                <div class="flow-node">
+                    <div class="flow-dot"></div>
+                    <h3>Giá trị cốt lõi đọng lại</h3>
+                    <p>Môn học mang đến bộ tư duy làm chủ công cụ số. Việc hiểu rõ bản chất của AI, biết cách tối ưu Prompt và giữ vững tính liêm chính học thuật chính là bệ phóng để thế hệ sinh viên kỹ thuật tự tin bước vào kỷ nguyên mới.</p>
                 </div>
 
-                <div class="timeline-item">
-                    <h3>Tâm đắc & Thách thức</h3>
-                    <p>Tâm đắc nhất là tạo ra được một sản phẩm web giao diện Dark sang trọng, cuốn hút. Thách thức lớn nhất là cách sắp xếp, cô đọng nội dung sao cho vừa đầy đủ tiêu chí của giảng viên, vừa giữ được nét thoáng đãng, tinh tế.</p>
+                <div class="flow-node">
+                    <div class="flow-dot"></div>
+                    <h3>Tâm đắc & Thách thức tương lai</h3>
+                    <p>Điểm tâm đắc nhất chính là việc hoàn thiện một giao diện Portfolio độc bản mang hơi thở Tech-Heritage. Thách thức tiếp theo là liên tục làm mới nội dung, phát triển thêm nhiều dự án công nghệ mang dấu ấn Việt Nam để vươn tầm quốc tế.</p>
                 </div>
             </div>
         </div>
@@ -423,7 +543,7 @@
 
     <footer>
         <div class="container">
-            <p>Digital Portfolio © 2026 | Thiết kế độc bản bởi <span>Nguyễn Phi Hùng</span></p>
+            <p>Digital Portfolio © 2026 | Tinh hoa truyền thống & Tương lai số nâng bước bởi <span>Nguyễn Phi Hùng</span></p>
         </div>
     </footer>
 
